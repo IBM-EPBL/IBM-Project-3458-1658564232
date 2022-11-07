@@ -1,0 +1,63 @@
+/* USING BOOTSTRAP 3.0.3 */
+body {
+  /*padding-top: 60px;*/
+  margin: 0px !important;
+}
+
+.wrapper-parent{
+    padding: 50px
+}
+.header-div{
+  width: 100%;
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
+  height: 50px;
+  /*padding-top: 60px;*/
+}
+nav .navbar-brand {
+  font-size: 20px;
+}
+nav .navbar-toggle {
+  margin: 13px 15px 13px 0;
+}
+nav a {
+  font-size: 18px;
+  padding-bottom: 20px !important;
+  padding-top: 20px !important;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+nav.navbar.shrink {
+  min-height: 25px;
+}
+nav.navbar.shrink .navbar-brand {
+  font-size: 15px;
+}
+nav.navbar.shrink a {
+  font-size: 15px;
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+}
+nav.navbar.shrink .navbar-toggle {
+  margin: 8px 15px 8px 0;
+  padding: 4px 5px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #ffffff !important;
+}
+
+#motivation_header{
+  top: 50px;
+  height: 100px;
+  position: relative;
+}
+
+.text-left{
+  text-align: left;
+  left: 25px;
+}
+
+.text-justify{
+  text-align: justify;
+}

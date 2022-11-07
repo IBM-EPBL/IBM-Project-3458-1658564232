@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Kaggle | Airline Delay & Cancel. Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon' type='image/x-icon' href='../assets/img/airplane_icon.ico' />
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel='stylesheet' href='../css/bootstrap.min.css'>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- USING BOOTSTRAP 3.0.3 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Airline Delay and Cancellation Analysis (2009-2018)</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li class="active"><a href="#">Summary</a></li>
+                <li><a href="#">Data</a></li>
+                <li><a href="#">Analysis</a></li>
+                <li><a href="#">References</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="text-center">
+        <h1 id="motivation_header" class="text-left">Motivation</h1>
+        <hr>
+        <p class="lead text-justify">The global aviation industry in one of the biggest industries by revenue in 2020. According to <a href="https://www.forbes.com/sites/jamesasquith/2020/04/06/if-aviation-was-a-country-it-would-be-the-worlds-20th-largest-by-gdp/#75a00acde5b5">Forbes</a>, if Aviation was A country, it would have been the World’s 20th Largest By GDP. It supports $2.7 trillion in world economic activity (3.6% of global gross domestic product). It supports $2.7 trillion in world economic activity (3.6% of global gross domestic product of the world)<sup><a href="https://aviationbenefits.org/economic-growth/adding-value-to-the-economy/">[1]</a> </sup>.
+            As per <a href="https://www.icao.int/annual-report-2018/Pages/the-world-of-air-transport-in-2018.aspx">ICAO’s preliminary compilation of annual global statistics</a>, the total number of passengers carried on scheduled services rose to 4.3 billion in 2018, which is 6.4 per cent higher than the previous year, while the number of departures reached 37.8 million in 2018, a 3.5 per cent increase.</p>
+        <p class="lead">As per AviationOutlook, the overall revenue rose from $754 billion in 2017 to $824 billion in 2018 (+9.4% growth).</p>
+        <p class="lead">The North America contributes 22.4 per cent of world traffic in 2018<sup><a href="https://aviationbenefits.org/economic-growth/adding-value-to-the-economy/">[2]</a> </sup>.
+            Domestic aviation play an important role in the Global Aviation Revenue. </p>
+        <p class="lead">North America:​    39.9 per cent of total RPK (Revenue passenger-Kilometres), posting growth of 5.2 per cent</p>
+        <p class="lead">Tha aviation industry not just helps people in transporting, but also aids in the growth of global commerce</p>
+        <p class="lead"><a href="https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp">[3]</a>
+            the big money comes from business travelers – as opposed to those flying for leisure or personal reasons – in percentages that far outweigh their numbers. Business travelers account for 12% percent of airlines&#39; passengers, but they are typically twice as profitable. In fact, on some flights, business passengers represent 75% of an airline&#39;s profits.</p>
+        <p class="lead"><a href="https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp">[3]</a></p>
+        <p class="lead">While the aviation industry in growing rapidly on a per year basis, the income losses</p>
+        <p class="lead">While going through different datasets, I found an interesting dataset on <a href="https://www.kaggle.com">Kaggle</a> that provided data points for the Delay and Cancellation of domestic American flights in the period of 2009 through 2018.
+            The aviation industry is worth trillions of dollars. Any minor or major flight delay or cancellation would result in loss of thousands to millions of dollars in revenues annually for both Airports as well as Airlines. Because this dataset is very recent, one could get a real picture of the current period.</p>
+        <p class="lead">While going through the variables of the dataset, I realized that I could get some insightful answers for questions like what are the major reasons of cancellation/delay of flights, which region is mostly affected, is there any specific period when cancellations/delays happen the most, is the amount of cancellation/ delay distributed equally nationwide or does that change regions-wise, what reasons led to delay/cancellations region-wise, etc.</p>
+        <p class="lead">If answers to such questions could be answered, this might help governments, airport authorities, airline organizations, or third party businesses who provide services on platforms built by airport and airline industries like advertising agencies and infotainment system providers to make smart decisions while providing any service to customers.
+            The government could choose locations with the least delaying/ canceling factors to build the busiest airport in their country. With more footfall on such airports, airport authorities could make more revenue allowing more and more airlines willing to land their flights at such a big airport. With such humongous/ mammoth footfall advertising agencies could throw more advertisements to customers.</p>
+        <h3 id="references">References</h3>
+        <ol>
+            <li>$2.7 trillion in world economic activity : <a href="https://aviationbenefits.org/economic-growth/adding-value-to-the-economy/">https://aviationbenefits.org/economic-growth/adding-value-to-the-economy/</a></li>
+            <li>22.4 per cent of world traffic was from  : <a href="https://www.icao.int/annual-report-2018/Pages/the-world-of-air-transport-in-2018.aspx">https://www.icao.int/annual-report-2018/Pages/the-world-of-air-transport-in-2018.aspx</a></li>
+        </ol>
+        <h3 id="about-the-data-">About the Data:</h3>
+        <hr>
+        <p class="lead">The main dataset has been sourced from <a href="https://www.kaggle.com/yuanyuwendymu/airline-delay-and-cancellation-data-2009-2018">Kaggle</a>. Additional data with Aiport metadata has also been fetched from Partow <a href="https://www.partow.net/miscellaneous/airportdatabase/">(The Global Airport Database)</a>. Only relevant information will be provided for the latter due to low importance in the report.</p>
+        <p class="lead">The main dataset i.e. <a href="https://www.kaggle.com/yuanyuwendymu/airline-delay-and-cancellation-data-2009-2018">Airline Cancellation/Delay (2009-2018)</a> was fetched in the form of multiple CSV files each representing data for each year. Overall, it was nearly 7 GB in size with nearly 68 million rows, comprising of the following fields/columns:</p>
+        <h4 id="fields-airline-cancellation-delay-2009-2018-dataset-">Fields (Airline Cancellation/Delay (2009-2018) dataset):</h4>
+        <p><img src="../images/main_data_set.png" alt=""></p>
+        <h4 id="fields-the-global-airport-database-dataset-">Fields (The Global Airport Database dataset):</h4>
+        <table>
+            <thead>
+            <tr>
+                <th style="text-align:center"><strong>Name</strong></th>
+                <th style="text-align:center"><strong>Type</strong></th>
+                <th style="text-align:center"><strong>Example</strong></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="text-align:center">ICAO Code</td>
+                <td style="text-align:center">(3-4 chars, A - Z)</td>
+                <td style="text-align:center">KATL</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">IATA Code</td>
+                <td style="text-align:center">(3 chars, A - Z)</td>
+                <td style="text-align:center">ATL</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Airport Name</td>
+                <td style="text-align:center">String</td>
+                <td style="text-align:center">THE WILLIAM B HARTSFIELD ATLANTA INTERNATIONAL</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">City/Town</td>
+                <td style="text-align:center">String</td>
+                <td style="text-align:center">ATLANTA</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Country</td>
+                <td style="text-align:center">String</td>
+                <td style="text-align:center">USA</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Latitude Degrees</td>
+                <td style="text-align:center">Integer [0,360]</td>
+                <td style="text-align:center">33</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Latitude Minutes</td>
+                <td style="text-align:center">Integer [0,60]</td>
+                <td style="text-align:center">38</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Latitude Seconds</td>
+                <td style="text-align:center">Integer [0,60]</td>
+                <td style="text-align:center">25</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Latitude Direction</td>
+                <td style="text-align:center">Char (N or S)</td>
+                <td style="text-align:center">N</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Longitude Degrees</td>
+                <td style="text-align:center">Integer [0,360]</td>
+                <td style="text-align:center">84</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Longitude Minutes</td>
+                <td style="text-align:center">Integer [0,60]</td>
+                <td style="text-align:center">25</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Longitude Seconds</td>
+                <td style="text-align:center">Integer [0,60]</td>
+                <td style="text-align:center">37</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Longitude Direction</td>
+                <td style="text-align:center">Char (E or W)</td>
+                <td style="text-align:center">W</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Altitude (Altitude in meters from mean sea level)</td>
+                <td style="text-align:center">Integer [-99999,+99999]</td>
+                <td style="text-align:center">313</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Latitude Decimal Degrees</td>
+                <td style="text-align:center">Floating point [-90,90]</td>
+                <td style="text-align:center">33.64</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">Longitude Decimal Degrees</td>
+                <td style="text-align:center">Floating point [-180,180]</td>
+                <td style="text-align:center">-84.427</td>
+            </tr>
+            </tbody>
+        </table>
+        <h4 id="fields-preview-main-dataset-">Fields Preview (Main Dataset):</h4>
+        <p>Set 1: 15/27 columns
+            <img src="../images/main_dataset_1.png" alt=""></p>
+        <p>Set 2: Remaining 12/27 columns
+            <img src="../images/main_dataset_2.png" alt=""></p>
+        <p>Fields Preview (Auxillary Dataset):
+            <img src="../images/aux_dataset_1.png" alt=""></p>
+        <h4 id="fields-graph-">Fields Graph:</h4>
+        <p>The following shows the relation between columns:
+            <img src="../images/kaggle-airline-data.png" alt=""></p>
+        <h3 id="obtaining-the-data-preprocessing">Obtaining the Data &amp; Preprocessing</h3>
+        <hr>
+        <ul>
+            <li><h4 id="obtaining-the-data-">Obtaining the Data:</h4>
+                Each CSV file was downloaded individually and kept in local storage unless uploaded to the cloud.</li>
+            <li><h4 id="preprocessing-">Preprocessing:</h4>
+                As the sourced data was already cleaned and formatted, no preprocessing was involved.</li>
+        </ul>
+        <h3 id="storage-">Storage :</h3>
+        <hr>
+        <p>Each CSV file is nearly 700 MB in size. Such large size CSVs cannot be uploaded directly to BigQuery. So, GCS was involved as an intermediate data storage. The GCS bucket that was used : <code>gs://personal-pr.</code>
+            The following command has been used:</p>
+        <pre><code>gsutil <span class="hljs-keyword">cp</span> <span class="hljs-symbol">&lt;source_to_CSV_dir&gt;</span>/*.csv g<span class="hljs-variable">s:</span>//personal-pr
+    </code></pre><p>The data points for the two datasets have been stored in two separate tables in BigQuery with the table’s schema being autogenerated.
+        For the main dataset, CSVs were appended to the same table to form the final table.</p>
+        <h3 id="data-analysis-">Data Analysis:</h3>
+        <p>A lot of extensive analysis has been carried out to gain insights from the data ingested in BigQuery while visualization has been carried in Google Data Studio. </p>
+    <!--    <p>Analysis carried out with <a href="https://datastudio.google.com">Google Data Studio</a></p>-->
+        <ul>
+            <li>Overall flight count from Top 5 Airlines at Top 5 Airports</li>
+        </ul>
+    <!--    <iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/a7316f10-091c-41ac-864d-e7538d91aaec/page/2svOB" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+
+        <hr>
+        <ul>
+            <li>Cancellations Pie Chart</li>
+        </ul>
+    <!--    <h2 id="-iframe-width-600-height-450-src-https-datastudio-google-com-embed-reporting-2f148032-7e76-407d-92c0-3c04172bdd31-page-gvvob-frameborder-0-style-border-0-allowfullscreen-iframe-"><iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/2f148032-7e76-407d-92c0-3c04172bdd31/page/gvvOB" frameborder="0" style="border:0" allowfullscreen></iframe></h2>-->
+        <ul>
+            <li>Overall Cancellations in Top 5 Airports </li>
+        </ul>
+    <!--    <h2 id="-iframe-width-600-height-450-src-https-datastudio-google-com-embed-reporting-51e8370d-1da6-4c79-bfe9-9163d26a6cd3-page-3xvob-frameborder-0-style-border-0-allowfullscreen-iframe-"><iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/51e8370d-1da6-4c79-bfe9-9163d26a6cd3/page/3xvOB" frameborder="0" style="border:0" allowfullscreen></iframe></h2>-->
+        <ul>
+            <li>Overall Delay in Top 5 Airports</li>
+        </ul>
+    <!--    <h2 id="-iframe-width-600-height-450-src-https-datastudio-google-com-embed-reporting-399ff77f-2440-478a-a336-4d627c3f5585-page-izvob-frameborder-0-style-border-0-allowfullscreen-iframe-"><iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/399ff77f-2440-478a-a336-4d627c3f5585/page/izvOB" frameborder="0" style="border:0" allowfullscreen></iframe> </h2>-->
+        <ul>
+            <li>Overall Cancellation/Delays Yearwise</li>
+        </ul>
+    <!--    <h2 id="-iframe-width-600-height-450-src-https-datastudio-google-com-embed-reporting-d4be53fe-6928-4e6c-89d0-e23aac599be8-page-45vob-frameborder-0-style-border-0-allowfullscreen-iframe-"><iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/d4be53fe-6928-4e6c-89d0-e23aac599be8/page/45vOB" frameborder="0" style="border:0" allowfullscreen></iframe></h2>-->
+        <ul>
+            <li>Overall Yearwise Cancellations</li>
+        </ul>
+    <!--    <h2 id="-iframe-width-600-height-450-src-https-datastudio-google-com-embed-reporting-7b267dde-41fc-4e1c-b292-9b5da5ea7b0d-page-u7vob-frameborder-0-style-border-0-allowfullscreen-iframe-"><iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/7b267dde-41fc-4e1c-b292-9b5da5ea7b0d/page/U7vOB" frameborder="0" style="border:0" allowfullscreen></iframe></h2>-->
+        <ul>
+            <li>Overall Cancellation Reasons
+                <img src="../images/7_Cancellation_Reason_bifurcation.png" alt=""></li>
+        </ul>
+        <hr>
+        <ul>
+            <li>Overall Cancellation Reasons (Busiest Airport - Atlanta)
+                <img src="../images/8_Cancellation_Reason_top_airport_ATL.png" alt=""></li>
+        </ul>
+        <hr>
+        <ul>
+            <li>Delay Count (2009-2018)
+                <img src="../images/Overall_delays_cnt.png" alt=""></li>
+        </ul>
+        <hr>
+        <ul>
+            <li>Delay Count (2018) (Year of max delays and cancellations)</li>
+        </ul>
+        <p><img src="../images/Overall_delay_cnt_2018.png" alt=""></p>
+        <hr>
+        <ul>
+            <li>Delay Percentage for top 5 airports (2009-2018)
+                <img src="../images/Overall_delays_percent.png" alt=""></li>
+        </ul>
+        <hr>
+        <ul>
+            <li>Delay Percentage for top 5 airports (2018) (Year of max delays and cancellations)</li>
+        </ul>
+        <p><img src="../images/Overall_delays_percent_2018.png" alt=""></p>
+        <ul>
+            <li>Most unreliable month in 2018 (Cancellations in ascending order)
+                <img src="../images/unreliable_month_2018.png" alt=""></li>
+        </ul>
+        <h4 id="software-specifications-">Software Specifications:</h4>
+        <ul>
+            <li>Choosing BigQuery : With such large data, obtaining results for even a small query takes nearly a minute or two in other database management systems. For complex queries, it might result in consuming 2-5 minutes. Such a huge latency might act as hurdles in business operations.
+                While viewing real-time dashboards, It may jeopardize user experience and as a result, reduce user retention overall. While querying data for APIs, such long time will lead in losing customers.</li>
+        </ul>
+        <h2 id="future-work">Future Work</h2>
+        <h3 id="glossary-">Glossary:</h3>
+        <ul>
+            <li><strong>Taxi Out:</strong> The flight attendants make sure the cabin is ready for takeoff and do conduct the emergency brief before takeoff. The pilots start the engines and request permission to taxi. While it seems that this is a relatively easy phase of your flight, its&#39; anything but, especially when it is a very busy airport, a lot of aircraft taxing around, maybe reduced visibility. This time taken is called Taxi Out.</li>
+            <li><strong>Taxi In:</strong> Similar to Taxi Out, there is a definite amount of time from the airplane landing on the runway till the time it rests at the final stop before passengers are allowed to move out of the plan. This time taken is called Taxi In.</li>
+            <li><strong>ICAO Code:</strong> The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world. (not using this one)</li>
+            <li><strong>IATA Code:</strong> An IATA airport code, also known as an IATA location identifier, IATA station code or simply a location identifier, is a three-letter geocode designating many airports and metropolitan areas around the world, defined by the International Air Transport Association (IATA)</li>
+        </ul>
+        <h3 id="summary-">Summary:</h3>
+        <p>After analyzing the data, a lot of insights have been generated. Most of the delays and cancellations are due to three major reasons:</p>
+        <ul>
+            <li>Weather</li>
+            <li>Airline/Carrier Issues</li>
+            <li>National Air System</li>
+        </ul>
+    <!--    <h2 id="different-ways-to-embed-pdfs-in-github-pages">Different ways to embed pdfs in GitHub pages</h2>-->
+    <!--    <h1 id="test-1">test 1</h1>-->
+    <!--    <embed src="https://sumanbogati.github.io/sample.pdf" width="700px" height="700px" type="application/pdf" />-->
+
+    <!--    <h1 id="test-2">test 2</h1>-->
+    <!--    <embed src="https://github.com/cs-rocks/Analysis-of-Domestic-Airline-Delay-and-Cancellation_2009-2018/raw/master/pdfs/Sys-Proj%207%20Flow.pdf" width="700px" height="700px" type="application/pdf" />-->
+
+    <!--    <h1 id="test-3">test 3</h1>-->
+    <!--    <object data="https://raw.githubusercontent.com/degoes-consulting/lambdaconf-2015/master/speakers/jdegoes/intro-purescript/presentation.pdf" type="application/pdf" width="700px" height="700px">-->
+    <!--        <embed src="https://raw.githubusercontent.com/degoes-consulting/lambdaconf-2015/master/speakers/jdegoes/intro-purescript/presentation.pdf">-->
+    <!--        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>-->
+    <!--        </embed>-->
+    <!--    </object>-->
+
+
+    <!--    <p><img src="pdfs/Sys-Proj%207%20Flow.pdf" alt=""></p>-->
+    <!--    <h1 id="test-4">test 4</h1>-->
+    <!--    <p><img src="pdfs/presentation.pdf" alt=""></p>-->
+
+    </div> <!-- /.text-center -->
+
+</div> <!-- /.container -->
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script><script  src="../script.js"></script>
+
+</body>
+</html>
